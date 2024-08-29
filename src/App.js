@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Count from "./components/Count";
+import { CountContext } from "./countContext";
 
-function App() {
+const App = () => {
+  const [count, setCount] = useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h2 className="scroll-m-20 text-center pb-2 text-3xl font-semibold tracking-normal first:mt-0">
+        The context API
+      </h2>
+      <CountContext.Provider value={{ count, setCount }}>
+        <Count />
+      </CountContext.Provider>
+    </>
   );
-}
+};
 
 export default App;
